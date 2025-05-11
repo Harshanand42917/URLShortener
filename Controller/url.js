@@ -17,7 +17,7 @@ export const shortUrl = async (req, res) => {
     await newUrl.save();
   }
 
-  const shortUrl = `http://localhost:1000/${shortCode}`;
+  const shortUrl = `urlcompressor-4ryv.onrender/${shortCode}`;
   console.log("short saved = ", shortUrl);
 
   res.render("index.ejs", { shortUrl });
