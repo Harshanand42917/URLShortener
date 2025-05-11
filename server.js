@@ -28,6 +28,21 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { shortUrl: null });
 });
 
+app.get("/status", (req, res) => {
+  try {
+    return res.status(200).json({
+      success: true,
+      message: "server is running fine",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error,
+    });
+  }
+});
+
 app.post("/short", shortUrl);
 app.get("/:shortCode", getOriginalUrl);
 
